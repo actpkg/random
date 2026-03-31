@@ -1,0 +1,6 @@
+_commit: ae322be
+_src_path: /mnt/devenv/workspace/act/act-component-template
+description: Random number, string, and UUID generation
+needs_filesystem: false
+needs_http: false
+project_name: random

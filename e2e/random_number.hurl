@@ -1,0 +1,20 @@
+# Default range 0-100
+POST {{baseurl}}/tools/random-number
+{}
+HTTP 200
+[Asserts]
+jsonpath "$.content[0].text" matches /^-?\d+$/
+
+# Custom range
+POST {{baseurl}}/tools/random-number
+{"arguments": {"min": 1, "max": 6}}
+HTTP 200
+[Asserts]
+jsonpath "$.content[0].text" matches /^[1-6]$/
+
+# Invalid range
+POST {{baseurl}}/tools/random-number
+{"arguments": {"min": 10, "max": 1}}
+HTTP 200
+[Asserts]
+jsonpath "$.error" exists
