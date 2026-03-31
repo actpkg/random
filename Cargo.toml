@@ -8,7 +8,7 @@ edition = "2024"
 act-sdk = "0.2"
 wit-bindgen = { version = "0.54", features = ["async-spawn"] }
 uuid = { version = "1", features = ["v4", "v7"] }
-rand = "0.9"
+rand = "0.10"
 
 [profile.release]
 lto = "fat"
