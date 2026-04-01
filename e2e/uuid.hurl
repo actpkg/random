@@ -15,6 +15,6 @@ jsonpath "$.content[0].data" matches /^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89a
 # Invalid version
 POST {{baseurl}}/tools/uuid
 {"arguments": {"version": 3}}
-HTTP 200
+HTTP 422
 [Asserts]
 jsonpath "$.error" exists
