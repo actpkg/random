@@ -30,7 +30,7 @@ mod component {
         #[doc = "Character set: 'alphanumeric' (default), 'hex', 'alpha', 'digits', 'ascii'"]
         charset: Option<String>,
     ) -> ActResult<String> {
-        use rand::Rng;
+        use rand::RngExt;
         let mut rng = rand::rng();
         let len = length.min(10_000) as usize;
 
@@ -62,7 +62,7 @@ mod component {
         #[doc = "Minimum value (inclusive, default 0)"] min: Option<i64>,
         #[doc = "Maximum value (inclusive, default 100)"] max: Option<i64>,
     ) -> ActResult<String> {
-        use rand::Rng;
+        use rand::RngExt;
         let min = min.unwrap_or(0);
         let max = max.unwrap_or(100);
         if min > max {
