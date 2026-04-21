@@ -5,7 +5,7 @@ version = "0.1.1"
 edition = "2024"
 
 [dependencies]
-act-sdk = "0.4"
+act-sdk = "0.5"
 wit-bindgen = { version = "0.57", features = ["async-spawn"] }
 uuid = { version = "1", features = ["v4", "v7"] }
 rand = "0.10"
