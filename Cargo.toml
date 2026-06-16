@@ -1,11 +1,11 @@
 [package]
 name = "component-random"
 description = "Random number, string, and UUID generation"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2024"
 
 [dependencies]
-act-sdk = "0.8"
+act-sdk = "0.9"
 wit-bindgen = { version = "0.58", features = ["async-spawn"] }
 uuid = { version = "1", features = ["v4", "v7"] }
 rand = "0.10"
