@@ -26,8 +26,11 @@ build:
 pack:
     {{actbuild}} pack {{wasm}}
 
+# Rust e2e harness (rmcp). Must run from inside e2e/ because cargo discovers
+# .cargo/config.toml from the CWD, and that file pins the host target — the
+# component root's own config defaults to wasm32-wasip2.
 test: build
-    ACT="{{act}}" uv run --project e2e pytest e2e/ -v
+    cd e2e && ACT="{{act}}" WASM="../{{wasm}}" cargo test
 
 publish: build
     #!/usr/bin/env bash

@@ -1,0 +1,17 @@
+[package]
+name = "e2e-random"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+# Detach from any outer workspace this component may sit in.
+[workspace]
+
+[dev-dependencies]
+rmcp = { version = "3.5", features = ["client", "transport-child-process"] }
+# No `net`: random declares no capabilities, so this suite spawns no stub server.
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "process", "io-util", "sync", "time"] }
+serde_json = "1"
+# The shape assertions are regex fullmatches, translated 1:1 from the python
+# suite (`re.fullmatch`) — a hand-rolled validator would assert less.
+regex = "1"

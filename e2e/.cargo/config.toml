@@ -1,0 +1,14 @@
+# This crate is host-only test code: it spawns `act` over tokio's process,
+# which does not exist on wasm. The component root's .cargo/config.toml
+# defaults every build in this tree to wasm32-wasip2 (`just build` relies on
+# that), so pin the host target here — a nearer config file wins — and a bare
+# `cargo test` in e2e/ does the right thing.
+#
+# `build-dir` must be pinned too: ~/.cargo/config.toml points it at a shared
+# /mnt/devenv/tmp/cargo-build, and every component's e2e crate is `e2e` 0.1.0
+# — concurrent suites collide on the fingerprint slot there, and a run can
+# come back "fresh" executing another component's test binary. A relative
+# path resolves against this crate's directory.
+[build]
+target = "x86_64-unknown-linux-gnu"
+build-dir = "target"
